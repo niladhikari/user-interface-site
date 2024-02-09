@@ -3,10 +3,10 @@ import Users from "./Users";
 
 const Home = () => {
   const [usersData] = useGetUser();
-  console.log(usersData);
+
   return (
-    <div>
-      <div className="grid md:grid-cols-2 gap-10 lg:grid-cols-3">
+    <div className="">
+      <div className="grid md:grid-cols-2 gap-10 lg:grid-cols-3 max-w-7xl mx-auto">
         {usersData?.users?.map((user) => (
           <Users key={user.id} user={user}></Users>
         ))}
