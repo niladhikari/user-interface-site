@@ -1,36 +1,21 @@
-import  { useEffect, useState } from "react";
-import './Banner.css'
+import { useState } from "react";
 import PropTypes from "prop-types";
-
-const Banner = ({ setResults }) => {
-  const [categories, setCategories] = useState([]);
+import "./Banner.css";
+const Banner = ({ handleSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [isSearchClicked, setIsSearchClicked] = useState(true);
 
-  useEffect(() => {
-    fetch("data.json")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  }, []);
 
-  const handleSearch = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSearchClicked(true);
-    if (isSearchClicked) {
-          const filtered = categories.filter((category) =>
-            category.category.toLowerCase().includes(searchQuery.toLowerCase())
-          );
-          setResults(filtered);
-          console.log(filtered);
-        }
+    handleSearch(searchQuery);
     setSearchQuery('')
   };
 
   return (
     <div>
-      <div className="h-[70vh] relative background mt-10 border-none">
+      <div className="h-[70vh] relative background  mt-10 border-none">
         <div className="absolute bottom-[27%] md:bottom-[30%] lg:bottom-[40%] w-full px-20">
-          <form>
+          <form onSubmit={handleSubmit}>
             <label
               htmlFor="default-search"
               className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -49,11 +34,10 @@ const Banner = ({ setResults }) => {
                   name="search"
                   id="default-search"
                   className="block md:w-[40%] lg:w-[30%] p-4 pl-10 text-sm text-gray-900 rounded-l-lg bg-gray-50 border-none dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
-                  placeholder="Search by category..."
+                  placeholder="Search by Name..."
                   required=""
                 />
                 <button
-                  onClick={handleSearch}
                   type="submit"
                   className="text-white bg-blue-700 font-medium rounded-r-lg px-4 py-2 border-none"
                 >
@@ -69,7 +53,7 @@ const Banner = ({ setResults }) => {
 };
 
 Banner.propTypes = {
-  setResults: PropTypes.func,
+  handleSearch: PropTypes.func.isRequired,
 };
 
 export default Banner;

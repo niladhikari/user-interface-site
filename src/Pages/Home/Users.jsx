@@ -3,8 +3,6 @@
 import { Link } from "react-router-dom";
 
 const Users = ({ user }) => {
-
-
   return (
     <div>
       <div className="card md:h-[500px] bg-base-100 shadow-xl mt-5">
