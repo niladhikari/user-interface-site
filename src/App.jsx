@@ -1,15 +1,17 @@
-
+import { Outlet } from "react-router-dom";
 
 function App() {
-
-
   return (
     <>
-      
-      <h1 className="text-5xl">Vite + React</h1>
-      
+      <div>
+   
+        <div className=" min-h-[calc(100vh-225px)] max-w-7xl mx-auto">
+          <Outlet></Outlet>
+        </div>
+  
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
