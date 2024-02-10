@@ -8,7 +8,7 @@ const links = (
       <NavLink to="/">Home</NavLink>
     </li>
     <li>
-      <NavLink to="/Products"> Add User</NavLink>
+      <NavLink to="/addUser"> Add User</NavLink>
     </li>
   </>
 );
