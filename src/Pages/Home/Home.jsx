@@ -36,7 +36,7 @@ const Home = () => {
         sortedUsers.sort((a, b) => a.email.localeCompare(b.email));
         break;
       case "company":
-        // Assuming there's a property called 'company' in user data, adjust accordingly
+     
         sortedUsers.sort((a, b) => a.company.name.localeCompare(b.company.name));
         break;
       default:

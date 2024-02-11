@@ -12,7 +12,7 @@ const UserDetails = () => {
   }, [id, userData]);
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <div className="card  bg-base-100 shadow-xl mt-5">
         <figure>
           <img  src={user?.image} alt="Shoes" />
