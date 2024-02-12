@@ -18,6 +18,7 @@ const Users = ({ user }) => {
           </Link>
           <h2>Email : {user?.email}</h2>
           <h2>Address : {user?.address?.address}</h2>
+          <h2>City : {user?.address?.city}</h2>
           <h2>Company Name : {user?.company?.name}</h2>
         </div>
       </div>

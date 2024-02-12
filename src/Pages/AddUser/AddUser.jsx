@@ -1,25 +1,48 @@
+import Swal from "sweetalert2";
+
 const AddUser = () => {
   const handleAddBook = (event) => {
     event.preventDefault();
 
     const form = event.target;
 
-    const fName = form.fName.value;
-    const lName = form.lName.value;
+    const firstName = form.fName.value;
+    const lastName = form.lName.value;
     const email = form.email.value;
     const address = form.address.value;
+    const city = form.city.value;
     const company = form.company.value;
-    const photo = form.photo.value;
+    const image = form.photo.value;
 
-    const myBooks = {
-      fName,
-      lName,
+    const myUser = {
+      firstName,
+      lastName,
       email,
       address,
+      city,
       company,
-      photo,
+      image,
     };
-    console.log(myBooks);
+    console.log(myUser);
+    fetch("https://dummyjson.com/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(myUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "User Added Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
   };
 
   return (
@@ -87,6 +110,19 @@ const AddUser = () => {
 
           <div className="md:flex mb-8">
             <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text font-semibold">City</span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="City"
+                  className="input input-bordered w-full"
+                />
+              </label>
+            </div>
+            <div className="form-control md:w-1/2 md:ml-4 mt-8 md:mt-0">
               <label className="label">
                 <span className="label-text font-semibold">Company Name</span>
               </label>

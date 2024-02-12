@@ -26,6 +26,7 @@ const UserDetails = () => {
           </Link>
           <h2 className=" md:text-xl "> <span className="font-bold">Email</span> : {user?.email}</h2>
           <h2 className=" md:text-xl "><span className="font-bold">Address</span> : {user?.address?.address}</h2>
+          <h2 className=" md:text-xl "><span className="font-bold">City</span> : {user?.address?.city}</h2>
           <h2 className=" md:text-xl "><span className="font-bold">Company Name</span> : {user?.company?.name}</h2>
         </div>
       </div>
