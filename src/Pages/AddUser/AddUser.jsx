@@ -1,7 +1,7 @@
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 const AddUser = () => {
-  const handleAddBook = (event) => {
+  const handleAddUser = (event) => {
     event.preventDefault();
 
     const form = event.target;
@@ -24,32 +24,28 @@ const AddUser = () => {
       image,
     };
     console.log(myUser);
-    fetch("https://dummyjson.com/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(myUser),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: "User Added Successfully",
-            icon: "success",
-            confirmButtonText: "Cool",
-          });
-        }
-      });
+
+    // fetch("https://dummyjson.com/users", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(myUser),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
   };
 
   return (
     <div className="bg-[#F4F3F0]">
       <div className=" p-10 md:p-24 max-w-7xl mx-auto">
         <h2 className="text-3xl font-extrabold text-center mb-5">Add a User</h2>
-        <form onSubmit={handleAddBook}>
+        <form onSubmit={handleAddUser}>
           <div className="md:flex mb-8">
             <div className="form-control  md:w-1/2">
               <label className="label">
